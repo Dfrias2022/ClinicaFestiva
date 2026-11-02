@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Feliz Halloween!</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    button {
+      background-color: #ff6600;
+      color: black;
+      border: none;
+      padding: 20px 40px;
+      font-size: 22px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="contenido">
+    <h2>🎃 Escanea para ver el mensaje secreto 🎃</h2>
+    <button onclick="reproducirSusto()">TOCA AQUÍ</button>
+  </div>
+
+  <audio id="grito" src="grito.mp3" preload="auto"></audio>
+
+  <script>
+    function reproducirSusto() {
+      var audio = document.getElementById("grito");
+      audio.play();
+      // Opcional: poner el fondo rojo o mostrar una imagen de susto
+      document.body.style.backgroundColor = "darkred";
+    }
+  </script>
+
+</body>
+</html>
