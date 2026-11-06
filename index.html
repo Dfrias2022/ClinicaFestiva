@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>¡Feliz Halloween!</title>
+  <title>¡Evento Clinica!</title>
   <style>
     body {
       background-color: black;
@@ -16,7 +16,9 @@
       align-items: center;
       height: 100vh;
       margin: 0;
+      overflow: hidden; /* Evita barras de desplazamiento */
     }
+
     button {
       background-color: #ff6600;
       color: black;
@@ -27,23 +29,43 @@
       border-radius: 10px;
       cursor: pointer;
     }
+
+    /* Estilo para la imagen de susto a pantalla completa */
+    #susto-img {
+      display: none; /* Oculta la imagen al cargar la página */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover; /* Llena toda la pantalla sin duplicar ni deformar */
+      z-index: 999; /* La coloca por encima de todo */
+    }
   </style>
 </head>
 <body>
 
   <div id="contenido">
-    <h2>🎃 Escanea para ver el mensaje secreto 🎃</h2>
+    <h2>🎃 Presiona para ver la pista 🎃</h2>
     <button onclick="reproducirSusto()">TOCA AQUÍ</button>
   </div>
+
+  <!-- Imagen de susto (reemplaza 'susto.jpg' por el nombre de tu archivo) -->
+  <img id="susto-img" src="Mejorada.jpg" alt="Susto">
 
   <audio id="grito" src="grito.mp3" preload="auto"></audio>
 
   <script>
     function reproducirSusto() {
+      // 1. Reproduce el audio del grito
       var audio = document.getElementById("grito");
       audio.play();
-      // Opcional: poner el fondo rojo o mostrar una imagen de susto
-      document.body.style.backgroundColor = "darkred";
+
+      // 2. Oculta el texto y el botón inicial
+      document.getElementById("contenido").style.display = "none";
+
+      // 3. Muestra la imagen de susto a pantalla completa
+      document.getElementById("susto-img").style.display = "block";
     }
   </script>
 
